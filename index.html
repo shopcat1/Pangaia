@@ -9,7 +9,7 @@ and replace your-access-token-goes-here with your actual access token-->
         <span id="volts"></span><br>
     <span id="tstamp"></span><br>
 
-    <button id="connectbutton" onclick="start()">Read Temp</button>
+    <button id="connectbutton" onclick="start()">Read Volts</button>
     
    <script>
 
@@ -17,34 +17,18 @@ $(document).ready(function(){
   
 <!--new token b26bc812535e55e3cb3d59eacde935be1f25f6c4      old 1cf158060ec1b7c46ad748774002ef19ae1db657-->
 
-        // colorWipe(strip.Color( 255, 45, 25)     , 50); //tarocco
-        //  colorFade(255, 45, 25, 1);//tarocco
-        //  colorWipe(strip.Color(240,   100,   50)     , 50);//salmon
-        //  colorFade(240,   100,   50, 1);//salmon
-        //  colorWipe(strip.Color(  220,   60,  140)     , 50);//blossom 
-        //  colorFade(220,   60,  140, 1);//blossom
-        //  colorWipe(strip.Color( 245,  125, 136), 50);//conch
-        //  colorFade(245,  125, 136, 1);//conch
-        //  colorWipe(strip.Color( 205, 255, 40)     , 50); //sprout
-        //  colorFade(205, 255, 40, 1);//sprout
-        //  colorWipe(strip.Color( 200, 240, 70)     , 50); //mint
-        //  colorFade(200, 240, 70, 1);//mint
-        //  colorWipe(strip.Color(60, 240, 150)     , 50); //stream
-        //  colorFade(60, 240, 150, 1);//stream
-        //  colorWipe(strip.Color( 150,255, 190)     , 50); //sky
-        //  colorFade( 150,255, 190, 1);//sky
-
+        
 
   
 function start(objButton) {
 
         document.getElementById("volts").innerHTML = "Waiting for data...";
         document.getElementById("volts").innerHTML ="";
-        var deviceID = "<< device id >>";
-        var accessToken = "<< access token >>";
-        var varName = "temperature";
+        var deviceID = "00fce6893f84768b5ac1805";
+        var accessToken = "b26bc812535e55e3cb3d59eacde935be1f25f6c4";
+        var varName = "volts";
 
-        requestURL = "https://api.spark.io/v1/devices/" + e00fce6893f84768b5ac1805 + "/" + varName + "/?access_token=" + b26bc812535e55e3cb3d59eacde935be1f25f6c4;
+        requestURL = "https://api.spark.io/v1/devices/" + deviceID + "/" + varName + "/?access_token=" + accessToken ;
         $.getJSON(requestURL, function(json) {
                  document.getElementById("volts").innerHTML = json.result + "&deg; F";
                  document.getElementById("volts").style.fontSize = "28px";

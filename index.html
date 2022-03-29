@@ -5,6 +5,12 @@ and replace your-access-token-goes-here with your actual access token-->
   <head>
 <link href="style.css" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+        <span id="temp"></span><br>
+    <span id="tstamp"></span><br>
+
+    <button id="connectbutton" onclick="start()">Read Temp</button>
+    
    <script>
 
 $(document).ready(function(){
@@ -30,7 +36,21 @@ $(document).ready(function(){
 
 
   
+function start(objButton) {
 
+        document.getElementById("volts").innerHTML = "Waiting for data...";
+        document.getElementById("volts").innerHTML ="";
+        var deviceID = "<< device id >>";
+        var accessToken = "<< access token >>";
+        var varName = "temperature";
+
+        requestURL = "https://api.spark.io/v1/devices/" + e00fce6893f84768b5ac1805 + "/" + varName + "/?access_token=" + b26bc812535e55e3cb3d59eacde935be1f25f6c4;
+        $.getJSON(requestURL, function(json) {
+                 document.getElementById("volts").innerHTML = json.result + "&deg; F";
+                 document.getElementById("volts").style.fontSize = "28px";
+                 document.getElementById("volts").innerHTML = json.coreInfo.last_heard;
+                 });
+    }
   
 
   $("#vend").click(function(){

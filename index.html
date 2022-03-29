@@ -34,9 +34,9 @@ $(document).ready(function(){
   
 
   $("#tarocco").click(function(){
-    $.post("https://api.particle.io/v1/devices/b26bc812535e55e3cb3d59eacde935be1f25f6c4/led?access_token=1cf158060ec1b7c46ad748774002ef19ae1db657",
+    $.post("https://api.particle.io/v1/devices/b26bc812535e55e3cb3d59eacde935be1f25f6c4/vend?access_token=1cf158060ec1b7c46ad748774002ef19ae1db657",
     {
-      arg: "255, 45, 25,0",
+      arg: "1",
       
     },
     function(data,status){
